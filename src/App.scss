@@ -1,0 +1,35 @@
+@function generateStars($count, $brightness) {
+  $height: 4000;
+  $width: 4000;
+  $white: rgba(255, 255, 255, $brightness);
+  $randomX: random($height);
+  $randomY: random($width);
+  $boxShadow: "#{$randomX}px #{$randomY}px #{$white}";
+  @for $i from 1 through $count {
+    $randomX: random($height);
+    $randomY: random($width);
+    $boxShadow: $boxShadow + ", #{$randomX}px #{$randomY}px #{$white}";
+  }
+  @return unquote($boxShadow);
+}
+
+.stars-fg {
+  box-shadow: generateStars(50, 0.7);
+  height: 0.2rem;
+  transition: all 0.2s linear;
+  width: 0.2rem;
+}
+
+.stars-mg {
+  box-shadow: generateStars(100, 0.45);
+  height: 0.15rem;
+  transition: all 0.2s linear;
+  width: 0.15rem;
+}
+
+.stars-bg {
+  box-shadow: generateStars(3000, 0.3);
+  height: 0.1rem;
+  transition: all 0.2s linear;
+  width: 0.1rem;
+}
