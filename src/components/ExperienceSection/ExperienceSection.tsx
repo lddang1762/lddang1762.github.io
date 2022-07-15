@@ -2,7 +2,7 @@ import React, { forwardRef, HTMLProps } from "react";
 
 const ExperienceSection = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>((props, ref) => {
   return (
-    <div className="flex mx-auto w-4/5 mb-32">
+    <div className="flex mx-auto w-4/5 mb-32" ref={ref}>
       <div className="basis-3/5">
         <header className="text-5xl tracking-widest font-light">EXEPERIENCE</header>
         <div className="h-[2px] w-3/4 bg-gradient-to-r from-gray-400 mt-8 mb-5" />

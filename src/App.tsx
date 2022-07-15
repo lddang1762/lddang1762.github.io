@@ -20,13 +20,13 @@ function App() {
   const scrollToSection = (section: number) => {
     switch (section) {
       case 1:
-        aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+        aboutRef.current?.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
         break;
       case 2:
-        experienceRef.current?.scrollIntoView({ behavior: "smooth" });
+        experienceRef.current?.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
         break;
       case 3:
-        contactRef.current?.scrollIntoView({ behavior: "smooth" });
+        contactRef.current?.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
         break;
     }
   };
@@ -38,10 +38,10 @@ function App() {
         <div className="stars-mg" style={{ transform: `translateY(-${scrollY * 0.3}px)` }} />
         <div className="stars-bg" style={{ transform: `translateY(-${scrollY * 0.1}px)` }} />
         <img className="moon mx-auto" src={Moon} alt="moon" />
-        {/* <div className="absolute right-16 top-[45vh]">
-          <Menu />
-        </div> */}
-        <div className="py-32">
+        <div className="fixed right-16 top-[45vh]">
+          <Menu scrollFn={scrollToSection} />
+        </div>
+        <div className="grid py-32">
           <AboutSection ref={aboutRef} scrollFn={scrollToSection} />
           <ExperienceSection ref={experienceRef} />
           <ContactSection ref={contactRef} />
