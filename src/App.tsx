@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./App.scss";
 import Moon from "./icons/moon.png";
-
 import Menu from "./components/Menu";
-import Body from "./components/Body";
+import AboutSection from "./components/AboutSection";
+import ExperienceSection from "./components/ExperienceSection";
+import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 
 function App() {
@@ -12,18 +13,43 @@ function App() {
     setScrollY(window.scrollY);
   });
 
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+
+  const scrollToSection = (section: number) => {
+    switch (section) {
+      case 1:
+        aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+        break;
+      case 2:
+        experienceRef.current?.scrollIntoView({ behavior: "smooth" });
+        break;
+      case 3:
+        contactRef.current?.scrollIntoView({ behavior: "smooth" });
+        break;
+    }
+  };
+
   return (
-    <>
-      <div className="h-custom bg-gradient-to-b from-black to-[#001129] text-white ">
-        <div className="stars-fg" style={{ transform: `translateY(-${scrollY * 0.5}px)` }} />
+    <div className="relative  bg-gradient-to-b from-black to-[#001129] text-white ">
+      <div>
+        <div className="stars-fg" style={{ transform: `translateY(-${scrollY * 0.6}px)` }} />
         <div className="stars-mg" style={{ transform: `translateY(-${scrollY * 0.3}px)` }} />
         <div className="stars-bg" style={{ transform: `translateY(-${scrollY * 0.1}px)` }} />
-        <img className="mx-auto relative mt-[-350px] rotate-180" src={Moon} alt="moon" />
-        <Body />
-        {/* <Menu /> */}
+        <img className="moon mx-auto" src={Moon} alt="moon" />
+        {/* <div className="absolute right-16 top-[45vh]">
+          <Menu />
+        </div> */}
+        <div className="py-32">
+          <AboutSection ref={aboutRef} scrollFn={scrollToSection} />
+          <ExperienceSection ref={experienceRef} />
+          <ContactSection ref={contactRef} />
+        </div>
+
         <Footer />
       </div>
-    </>
+    </div>
   );
 }
 

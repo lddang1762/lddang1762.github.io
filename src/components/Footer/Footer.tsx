@@ -5,16 +5,16 @@ import { ReactComponent as LinkedIn } from "../../icons/linkedin.svg";
 
 export default function Footer() {
   return (
-    <div className="w-full text-center">
+    <div className="w-full text-center py-12">
       <div className="flex justify-center">
         <a
-          className="h-12 fill-white mx-5 hover:fill-orange-500 hover:scale-110 transition-transform ease-out"
+          className="h-12 fill-white mx-5 hover:fill-orange-500 active:scale-90 hover:scale-110 transition-transform ease-out"
           href="mailto:lddang1762@gmail.com"
         >
           <Email className="h-12" />
         </a>
         <a
-          className="h-12 fill-white mx-5 hover:fill-orange-500 hover:scale-110 transition-transform ease-out"
+          className="h-12 fill-white mx-5 hover:fill-orange-500 active:scale-90 hover:scale-110 transition-transform ease-out"
           href="https://github.com/lddang1762"
           target="_blank"
           rel="noreferrer"
@@ -22,7 +22,7 @@ export default function Footer() {
           <Github className="h-12" />
         </a>
         <a
-          className="h-12 fill-white mx-5 hover:fill-orange-500 hover:scale-110 transition-transform ease-out"
+          className="h-12 fill-white mx-5 hover:fill-orange-500 active:scale-90 hover:scale-110 transition-transform ease-out"
           href="https://www.linkedin.com/in/luc-dang/"
           target="_blank"
           rel="noreferrer"

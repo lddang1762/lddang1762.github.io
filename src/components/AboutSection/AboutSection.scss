@@ -1,0 +1,83 @@
+$numCharacters: 10;
+$initialDelay: 500ms;
+
+.typewriter {
+  position: relative;
+  visibility: hidden;
+  animation: type linear forwards;
+  color: white;
+
+  &:first-of-type::before {
+    content: "";
+    visibility: initial;
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    margin-top: -0.25rem;
+    border-right: 2px solid rgba(white, 0.7);
+    animation: typeCursor (200ms + $initialDelay) linear forwards;
+  }
+
+  @for $c from 1 through $numCharacters {
+    &:nth-of-type(#{$c}) {
+      @if $c < 3 {
+        animation-delay: 200ms * $c + $initialDelay;
+      } @else if $c == 3 {
+        animation-delay: 200ms * $c + 400ms + $initialDelay;
+      } @else if $c == 4 {
+        animation-delay: 200ms * $c + 450ms + $initialDelay;
+      } @else {
+        animation-delay: 175ms * $c + 900ms + $initialDelay;
+      }
+    }
+
+    &:nth-of-type(#{$c})::after {
+      content: "";
+      opacity: 0;
+      position: absolute;
+      right: 0px;
+      height: 100%;
+      margin-top: -0.25rem;
+      border-right: 2px solid rgba(white, 0.7);
+
+      @if $c == $numCharacters {
+        opacity: 1;
+        right: -25%;
+        animation: blink 0.6s cubic-bezier(1, 0, 0, 1) infinite alternate;
+        animation-delay: 175ms * $c + 700ms;
+      } @else if $c < 2 {
+        animation: typeCursor (200ms * $c + 200ms + $initialDelay) linear forwards;
+      } @else if $c == 2 {
+        animation: typeCursor (200ms * $c + 400ms + 200ms + $initialDelay) linear forwards;
+      } @else if $c == 3 {
+        animation: typeCursor (200ms * $c + 450ms + 200ms + $initialDelay) linear forwards;
+      } @else {
+        animation: typeCursor (175ms * $c + 900ms + 200ms + $initialDelay) linear forwards;
+      }
+    }
+  }
+}
+
+@keyframes type {
+  to {
+    visibility: initial;
+  }
+}
+
+@keyframes typeCursor {
+  1% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  to {
+    opacity: 0;
+  }
+}
