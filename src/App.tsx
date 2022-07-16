@@ -1,52 +1,48 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import "./App.scss";
+
 import Moon from "./icons/moon.png";
+import ParallaxBG from "./components/ParallaxBG";
 import Menu from "./components/Menu";
-import AboutSection from "./components/AboutSection";
-import ExperienceSection from "./components/ExperienceSection";
-import ContactSection from "./components/ContactSection";
+import HeroSection from "./components/Sections/HeroSection.tsx";
+import AboutSection from "./components/Sections/AboutSection";
+import ExperienceSection from "./components/Sections/ExperienceSection";
+import ContactSection from "./components/Sections/ContactSection";
 import Footer from "./components/Footer";
 
 function App() {
-  const [scrollY, setScrollY] = useState(0);
-  window.addEventListener("scroll", () => {
-    setScrollY(window.scrollY);
-  });
-
   const aboutRef = useRef<HTMLDivElement>(null);
   const experienceRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
-  const scrollToSection = (section: number) => {
+  const scrollToSection = (section: string) => {
     switch (section) {
-      case 1:
+      case "about me":
         aboutRef.current?.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
         break;
-      case 2:
+      case "experience":
         experienceRef.current?.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
         break;
-      case 3:
+      case "contact":
         contactRef.current?.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
         break;
     }
   };
 
   return (
-    <div className="relative  bg-gradient-to-b from-black to-[#001129] text-white ">
+    <div className="relative bg-gradient-to-b from-black to-[#001129] text-white ">
       <div>
-        <div className="stars-fg" style={{ transform: `translateY(-${scrollY * 0.6}px)` }} />
-        <div className="stars-mg" style={{ transform: `translateY(-${scrollY * 0.3}px)` }} />
-        <div className="stars-bg" style={{ transform: `translateY(-${scrollY * 0.1}px)` }} />
-        <img className="moon mx-auto" src={Moon} alt="moon" />
-        <div className="fixed right-16 top-[45vh]">
-          <Menu scrollFn={scrollToSection} />
+        <ParallaxBG />
+        <img className="moon" src={Moon} alt="moon" />
+        <Menu scrollFn={scrollToSection} />
+        <HeroSection />
+        <div className="lg:pl-40 ">
+          <div className="px-6 lg:px-16">
+            <AboutSection ref={aboutRef} scrollFn={scrollToSection} />
+            <ExperienceSection ref={experienceRef} />
+            <ContactSection ref={contactRef} />
+          </div>
         </div>
-        <div className="grid py-32">
-          <AboutSection ref={aboutRef} scrollFn={scrollToSection} />
-          <ExperienceSection ref={experienceRef} />
-          <ContactSection ref={contactRef} />
-        </div>
-
         <Footer />
       </div>
     </div>

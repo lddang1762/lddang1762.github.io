@@ -1,7 +1,7 @@
 $orbitItemSize: 1.6rem;
 $numOrbitItems: 7;
 $ringDiameter: 18rem;
-$ringColor: #0d284f;
+$ringColor: #506c05;
 $animationLength: 35s;
 
 .orbit-icon {
@@ -30,7 +30,7 @@ $animationLength: 35s;
     &:hover {
       ~ li {
         ul.orbit-ring {
-          background-color: rgba(darken($ringColor, 10%), 0.5);
+          background-color: rgba(darken($ringColor, 10%), 0.2);
           border: solid 4px $ringColor;
 
           animation: clockwiseRotate $animationLength linear infinite;
