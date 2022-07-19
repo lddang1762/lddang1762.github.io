@@ -2,14 +2,6 @@ $numCharacters: 10;
 $initialDelay: 500ms;
 $color: #86b504;
 
-.divider {
-  font-family: VT323;
-  color: $color;
-  &::before {
-    content: "===========================================================";
-  }
-}
-
 .section {
   position: relative;
   visibility: hidden;
@@ -30,7 +22,7 @@ $color: #86b504;
 
     opacity: 1;
     right: 0;
-    animation: blink 1s cubic-bezier(1, 0, 0, 1) infinite alternate;
+    animation: blink 0.5s cubic-bezier(1, 0, 0, 1) infinite alternate;
   }
 }
 
@@ -40,6 +32,9 @@ $color: #86b504;
   }
   50% {
     opacity: 1;
+  }
+  51% {
+    opacity: 0;
   }
   100% {
     opacity: 0;

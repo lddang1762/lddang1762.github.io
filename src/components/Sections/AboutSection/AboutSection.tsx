@@ -9,16 +9,15 @@ interface SectionProps extends HTMLProps<HTMLDivElement> {
 const AboutSection = forwardRef<HTMLDivElement, SectionProps>(({ scrollFn, ...props }, ref) => {
   const header = "ABOUT ME";
   return (
-    <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-8 mb-32" ref={ref}>
-      <div>
+    <div className="mb-24" ref={ref}>
+      <div className="text-center lg:text-left">
         {header.split("").map((char, index) => (
           <header key={index} className="section inline text-5xl md:text-6xl lg:text-7xl tracking-widest font-light">
             {char}
           </header>
         ))}
-
-        {/* <div className="divider w-full mt-2 mb-4 text-3xl" /> */}
-
+      </div>
+      <div className="text-center lg:text-left">
         <p className="tracking-wide">
           Welcome to the personal website of <span className="text-[#ff8900] font-medium">Luc Dang.</span>
         </p>
@@ -34,7 +33,7 @@ const AboutSection = forwardRef<HTMLDivElement, SectionProps>(({ scrollFn, ...pr
           </button>
         </p>
       </div>
-      <div className="relative min-w-[250px] lg:min-w-[500px] min-h-[500px]">
+      <div className="relative min-w-[250px] lg:min-w-[400px] min-h-[400px] mx-auto">
         <Orbit />
       </div>
     </div>

@@ -1,0 +1,100 @@
+$icon-size: 4rem;
+$headerColor: #ff8900;
+$color: #86b504;
+
+.timeline-wrapper {
+  i {
+    font-family: IBM Plex Mono;
+    font-style: initial;
+  }
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  min-height: 7rem;
+  letter-spacing: 0.04rem;
+
+  @media (min-width: 1024px) {
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      bottom: calc(50% + 2.5rem);
+      left: calc(2rem - 0.5px);
+      border-left: 3px dashed white;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: calc(50% + 2.5rem);
+      bottom: 0;
+      left: calc(2rem - 0.5px);
+      border-left: 3px dashed white;
+    }
+
+    &:last-of-type::after,
+    &:first-of-type::before {
+      border-left: none;
+    }
+  }
+}
+
+.item-icon {
+  min-width: $icon-size;
+  height: $icon-size;
+  margin-right: 2rem;
+  z-index: 10;
+}
+
+.item-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.025rem;
+
+  color: $headerColor;
+}
+
+.item-date {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: rgba(white, 0.65);
+}
+
+.item-body {
+  padding-left: 1rem;
+
+  > li {
+    &::before {
+      content: "\2022";
+      color: rgba($color, 0.9);
+      font-weight: bold;
+      display: inline-block;
+      width: 1rem;
+      margin-left: -1rem;
+    }
+    &:not(:last-child) {
+      margin-bottom: 0.3rem;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .timeline-item {
+    flex-direction: column;
+  }
+  .item-icon {
+    margin-right: 0;
+  }
+
+  .timeline-wrapper [class^="item-"] {
+    text-align: center;
+  }
+}

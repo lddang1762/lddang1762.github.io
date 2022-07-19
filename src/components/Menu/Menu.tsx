@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-export default function Menu({ scrollFn, ...props }: { scrollFn: any }) {
-  const links = ["about me", "experience", "contact"];
+export default function Menu({ scrollFn, onCollapse, ...props }: { scrollFn: any; onCollapse: any }) {
+  const links = ["home", "about me", "experience", "contact"];
   return (
     <menu className="w-40 hidden lg:flex flex items-center justify-center fixed left-0 top-0 h-screen bg-gray-800/20 hover:bg-gray-800 transition-all">
       <div className="text-white text-xl px-5 py-12 ">
+        {/* <button onClick={onCollapse}>collapse</button> */}
         {links.map((link, index) => {
           return (
             <a

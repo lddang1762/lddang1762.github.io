@@ -16,7 +16,7 @@ export default function Orbit() {
       <ul className="orbit-wrap">
         <li className="orbit-center">
           <i className="orbit-center__icon fa fa-code">
-            <img src={Avatar} className="w-16 h-16 stroke-black" alt={Avatar.toString()} />
+            <img src={Avatar} className="w-14 h-14 stroke-black" alt={Avatar.toString()} />
           </i>
         </li>
         <li>
@@ -25,7 +25,7 @@ export default function Orbit() {
               return (
                 <li key={Icon.toString()}>
                   <div>
-                    <img src={Icon} className="w-14 h-14" alt={Icon.toString()} />
+                    <img src={Icon} className="w-12 h-12" alt={Icon.toString()} />
                   </div>
                 </li>
               );

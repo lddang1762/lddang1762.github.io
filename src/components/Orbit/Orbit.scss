@@ -1,6 +1,6 @@
 $orbitItemSize: 1.6rem;
 $numOrbitItems: 7;
-$ringDiameter: 18rem;
+$ringDiameter: 14rem;
 $ringColor: #506c05;
 $animationLength: 35s;
 
@@ -8,7 +8,6 @@ $animationLength: 35s;
   width: $orbitItemSize;
   height: $orbitItemSize;
   line-height: $orbitItemSize;
-  font-size: 1.2em;
   border-radius: 50%;
   background: #ccc;
   color: #fff;
