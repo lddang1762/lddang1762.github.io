@@ -1,0 +1,85 @@
+$submit: #ff8900;
+$color: #86b504;
+
+.contact-form {
+  padding-top: 1rem;
+  @media (max-width: 1024px) {
+    max-width: 500px;
+    // padding-right: 2.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  > input,
+  textarea {
+    display: block;
+    padding: 0.5rem;
+
+    margin-bottom: 1rem;
+    background: rgba($color, 0.25);
+    border: 2px $color solid;
+    &:focus {
+      background: rgba($color, 0.1);
+      outline: 2px rgba($color, 0.5) solid;
+      outline-offset: 2px;
+    }
+
+    &:invalid {
+      background: rgba(red, 0.1);
+      outline: 2px rgba(red, 0.5) solid;
+      outline-offset: 2px;
+    }
+
+    &[type="submit"] {
+      display: inline;
+      padding-left: 1em;
+      padding-right: 1rem;
+      padding-top: 0.3rem;
+      padding-bottom: 0.3rem;
+      margin-right: 1rem;
+      background: rgba($submit, 0.25);
+      border: 2px $submit solid;
+      color: $submit;
+
+      &:focus {
+        outline: 2px rgba($submit, 0.5) solid;
+        outline-offset: 2px;
+      }
+
+      &:disabled {
+        background: rgba(gray, 0.25);
+        border: 2px gray solid;
+        color: gray;
+      }
+    }
+  }
+
+  label {
+    letter-spacing: 0.05rem;
+    &.error {
+      color: $submit;
+    }
+  }
+
+  .name {
+    @media (min-width: 1025px) {
+      width: 350px;
+    }
+    width: 100%;
+  }
+
+  .email {
+    @media (min-width: 1025px) {
+      width: 400px;
+    }
+    width: 100%;
+  }
+
+  textarea {
+    @media (min-width: 1025px) {
+      min-height: 200px;
+      width: 50%;
+      min-width: 500px;
+    }
+    width: 100%;
+  }
+}

@@ -1,4 +1,6 @@
 import React, { forwardRef, HTMLProps } from "react";
+import ContactForm from "./ContactForm";
+import "./ContactForm.scss";
 
 const ContactSection = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>((props, ref) => {
   const header = "CONTACT";
@@ -11,7 +13,7 @@ const ContactSection = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>((pr
           </header>
         ))}
       </div>
-      <p className="tracking-wide">asdf</p>
+      <ContactForm />
     </div>
   );
 });

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Timeline.scss";
 import Rocket from "../../icons/rocketship.svg";
 import Earth from "../../icons/earth.svg";
@@ -6,13 +6,14 @@ import Earth from "../../icons/earth.svg";
 import Items from "./TimelineItems";
 
 export default function Timeline() {
+  const [animating, setAnimating] = useState(false);
+
   return (
     <ul className="timeline-wrapper">
       <li className="timeline-item">
         <div className="item-icon">
           <img src={Rocket} alt="item-icon" />
         </div>
-        {/* <i>Rocket</i> */}
       </li>
 
       {Items.map((item) => (
@@ -31,24 +32,20 @@ export default function Timeline() {
           </div>
         </li>
       ))}
-      {/* <li>
-        <i>Saturn</i>
-      </li>
-      <li>
-        <i>Mars</i>
-      </li>
-      <li>
-        <i>Asteroid</i>
-      </li>
-      <li>
-        <i>Asteroid2</i>
-      </li> */}
 
       <li className="timeline-item">
         <div className="item-icon">
           <img src={Earth} alt="item-icon" />
         </div>
-        {/* <i>Earth</i> */}
+        <a href="/LucDang_Resume_FrontEnd.pdf" download>
+          <button
+            className={`download ${animating ? "animating" : ""}`}
+            onClick={() => setAnimating(true)}
+            onAnimationEnd={() => setAnimating(false)}
+          >
+            Download CV
+          </button>
+        </a>
       </li>
     </ul>
   );

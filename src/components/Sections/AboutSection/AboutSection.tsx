@@ -33,7 +33,7 @@ const AboutSection = forwardRef<HTMLDivElement, SectionProps>(({ scrollFn, ...pr
           </button>
         </p>
       </div>
-      <div className="relative min-w-[250px] lg:min-w-[400px] min-h-[400px] mx-auto">
+      <div className="relative min-w-[200px] min-h-[300px] lg:min-w-[400px] lg:min-h-[400px] mx-auto">
         <Orbit />
       </div>
     </div>

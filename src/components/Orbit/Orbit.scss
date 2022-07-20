@@ -25,27 +25,27 @@ $animationLength: 35s;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    @media (min-width: 1024px) {
+      &:hover {
+        ~ li {
+          ul.orbit-ring {
+            background-color: rgba(darken($ringColor, 10%), 0.2);
+            border: solid 4px $ringColor;
 
-    &:hover {
-      ~ li {
-        ul.orbit-ring {
-          background-color: rgba(darken($ringColor, 10%), 0.2);
-          border: solid 4px $ringColor;
+            animation: clockwiseRotate $animationLength linear infinite;
 
-          animation: clockwiseRotate $animationLength linear infinite;
+            div {
+              animation: counterClockwiseRotate $animationLength linear infinite;
+              padding: 2px;
+            }
 
-          div {
-            animation: counterClockwiseRotate $animationLength linear infinite;
-            padding: 2px;
-          }
-
-          @for $s from 1 through $numOrbitItems {
-            // Spread items over the ring
-            $deg: calc(360deg / $numOrbitItems);
-            $translation: calc($ringDiameter * 1.5 / 2);
-
-            > li:nth-of-type(#{$s}) {
-              transform: rotate(($s - 1) * $deg - 90deg) translate($translation) rotate(-($s - 1) * $deg + 90deg);
+            @for $s from 1 through $numOrbitItems {
+              // Spread items over the ring
+              $deg: calc(360deg / $numOrbitItems);
+              $translation: calc($ringDiameter * 1.5 / 2);
+              > li:nth-of-type(#{$s}) {
+                transform: rotate(($s - 1) * $deg - 90deg) translate($translation) rotate(-($s - 1) * $deg + 90deg);
+              }
             }
           }
         }
@@ -122,9 +122,12 @@ ul[class^="orbit-ring"] {
     transform: rotateZ(0deg);
   }
 }
-.orbit-wrap > li.orbit-center:hover ~ li > ul {
-  width: $ringDiameter * 1.5;
-  height: $ringDiameter * 1.5;
+
+@media (min-width: 1024px) {
+  .orbit-wrap > li.orbit-center:hover ~ li > ul {
+    width: $ringDiameter * 1.5;
+    height: $ringDiameter * 1.5;
+  }
 }
 
 @keyframes clockwiseRotate {

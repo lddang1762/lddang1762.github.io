@@ -1,5 +1,8 @@
 html {
   font-family: IBM Plex Mono;
+  @media (max-width: 1024px) {
+    font-size: 15px;
+  }
 }
 
 button {
@@ -7,15 +10,15 @@ button {
 }
 
 @function generateStars($count, $brightness) {
-  $height: 4000;
+  $height: 7000;
   $width: 4000;
   $white: rgba(255, 255, 255, $brightness);
-  $randomX: random($height);
-  $randomY: random($width);
+  $randomX: random($width);
+  $randomY: random($height);
   $boxShadow: "#{$randomX}px #{$randomY}px #{$white}";
   @for $i from 1 through $count {
-    $randomX: random($height);
-    $randomY: random($width);
+    $randomX: random($width);
+    $randomY: random($height);
     $boxShadow: $boxShadow + ", #{$randomX}px #{$randomY}px #{$white}";
   }
   @return unquote($boxShadow);
@@ -48,13 +51,16 @@ button {
 $moonTranslation: translate(-50%, -65%);
 
 .moon {
-  width: 50vw;
-  min-width: 450px;
-  max-width: 600px;
+  @media (min-width: 600px) {
+    width: 50vw;
+    min-width: 450px;
+    max-width: 600px;
+    animation: rotate 300s linear infinite;
+  }
   position: absolute;
   left: 50%;
-  transform: $moonTranslation;
-  animation: rotate 300s linear infinite;
+  transform: $moonTranslation rotate(-180deg);
+  // width: 90%;
 }
 
 @keyframes rotate {
