@@ -39,6 +39,12 @@ $color: #86b504;
       background: rgba($submit, 0.25);
       border: 2px $submit solid;
       color: $submit;
+      cursor: pointer;
+      transition: background 0.2s linear;
+
+      &:hover {
+        background: rgba($submit, 0.35);
+      }
 
       &:focus {
         outline: 2px rgba($submit, 0.5) solid;

@@ -41,7 +41,7 @@ const Items: Array<Item> = [
     body: [
       "Designed UI wireframes and webpage prototypes that adhered to the project requirements and maintained a consistent theme and design standard",
       "Implemented approved UI designs into a single page application using component-based design with React, Typescript, and the Mantine component library",
-      "Within a small startup team of 3, practiced CI/CD and agile development to build a cryptocurrency portfolio application and continuously deploy with Vercel",
+      "Communicate with database and centralized/decentralized crypto exchange APIs and present data through the Recharts visualization library",
     ],
     icon: mars,
   },
